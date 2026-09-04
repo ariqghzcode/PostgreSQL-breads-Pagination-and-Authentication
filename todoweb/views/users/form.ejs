@@ -15,7 +15,6 @@
         <div class="card mt-3">
             <form action="" method="POST">
                 <div class="card-body">
-
                     <div class="row mb-3">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
@@ -41,16 +40,16 @@
                         <label for="birthdate" class="col-sm-2 col-form-label">Birth date</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="date" id="birthdate" name="birthdate"
-                                value="<%= item.birthdate %>">
+                                value="<%= moment(item.birthdate).format('YYYY-MM-DD') %>">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="isMarried" class="col-sm-2 col-form-label">Marital Status</label>
+                        <label for="ismarried" class="col-sm-2 col-form-label">Marital Status</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="isMarried" required>
+                            <select class="form-control" name="ismarried" required>
                                 <option value="" disabled selected>have you married ?</option>
-                                <option value="false" <%=item.isMarried == false ? ' selected' : '' %>>Not yet</option>
-                                <option value="true" <%=item.isMarried == true ? ' selected' : '' %>>yes</option>
+                                <option value="false" <%=item.ismarried === false ? ' selected' : '' %>>Not yet</option>
+                                <option value="true" <%=item.ismarried === true ? ' selected' : '' %>>yes</option>
                             </select>
                         </div>
                     </div>
