@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fileUpload = require('express-fileupload');
+var session = require('express-session');
+var flash = require('connect-flash');
 
 const pg = require('pg') 
 const { Pool } = pg
@@ -16,7 +18,7 @@ const pool = new Pool({
   database: 'datadb'
 })
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index')(pool);
 var usersRouter = require('./routes/users')(pool);
 
 var app = express();
@@ -31,6 +33,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
+app.use(session({
+  secret: 'Rubicamp',
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
