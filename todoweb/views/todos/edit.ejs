@@ -1,0 +1,41 @@
+<%- include('../partials/header')%>
+    <div class="container">
+        <div class="card mt-3">
+            <form action="" method="POST">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <label for="title" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="title" placeholder="insert your to do lists"
+                                value="<%= item.title %>">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="deadline" class="col-sm-2 col-form-label">Deadline</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="datetime-local" id="deadline" name="deadline"
+                                value="<%= moment(item.deadline).format('YYYY-MM-DDTHH:mm') %>">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="complete" class="col-sm-2 col-form-label">Complete</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="complete" required>
+                                <option value="" disabled selected>-select complete-</option>
+                                <option value="false" <%=item.complete === false ? ' selected' : '' %>>Not yet
+                                </option>
+                                <option value="true" <%=item.complete === true ? ' selected' : '' %>>Done</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer px-3">
+                    <button class="btn btn-success mb-0" type="submit">Save</button>
+                    <input class="btn btn-warning mb-0" type="button" value="cancel"
+                        onclick="window.location.href='/todos'">
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+<%- include('../partials/footer')%>

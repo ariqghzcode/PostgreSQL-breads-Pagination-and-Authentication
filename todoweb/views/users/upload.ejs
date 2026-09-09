@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Avatar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-
-<body>
+<%- include('../partials/header')%>
     <div class="container">
         <div class="card">
             <form action="" method="post" encType="multipart/form-data">
@@ -22,12 +10,9 @@
             </div>
             <div class="card-footer">
                 <button class="btn btn-primary" type="submit">Upload</button>
-                <a class="btn btn-warning" href="/">Cancel</a>
+                <a class="btn btn-warning" href="/todos">Cancel</a>
             </div>
             </form>
         </div>
     </div>
-    
-</body>
-
-</html>
+<%- include('../partials/footer')%>

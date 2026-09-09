@@ -1,0 +1,22 @@
+<%- include('../partials/header')%>
+    <div class="container">
+        <div class="card mt-3">
+            <form action="" method="POST">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <label for="title" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="title" placeholder="insert your to do lists"
+                                value="<%= item.title %>">
+                        </div>
+                </div>
+                <div class="card-footer px-3">
+                    <button class="btn btn-success mb-0" type="submit">Save</button>
+                    <input class="btn btn-warning mb-0" type="button" value="cancel"
+                        onclick="window.location.href='/todos'">
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+<%- include('../partials/footer')%>
