@@ -21,7 +21,7 @@ module.exports = function (db) {
 
     if (req.query.title) {
       params.push(req.query.title)
-      queries.push(`title like '%' || $${params.length} || '%'`)
+      queries.push(`title ilike '%' || $${params.length} || '%'`)
 
     }
 
